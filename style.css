@@ -1,0 +1,425 @@
+/* NAVBAR */
+body{
+    background-color: #f6f9f8;
+    margin: 0;
+    padding: 0;
+}
+.container-fluid {
+            display: flex;
+            flex-wrap: nowrap;
+            align-items: center;
+            justify-content: center;   
+            gap: 0.8rem 2rem;
+            background-color: #ffffff;
+}
+.navbar-brand{
+    border: 2px solid black;
+}
+.navbar {
+    padding: 0;
+    margin: 0;
+}
+.nav{
+    
+    justify-content: flex-start;
+}
+.nav-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    list-style: none;
+    position: relative;
+}
+.nav-item::before{
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2.3px;
+    bottom: 0;
+    left: 0;
+    background-color: black;
+    transition: width 0.3s ease;
+}
+.nav-item:hover::before{
+    width: 90%;
+}
+.nav-item.active::before {
+    width: 100%;
+    height: 2.3px;
+}
+.nav-link{
+    color: black;
+    background-color: #ffffff;
+    font-weight: 500;
+    padding: 0.3rem 1.2rem 0.4rem;
+}
+.nav-link.active {
+    
+    font-weight: 600;
+    padding: 0.3rem 1.2rem 0.4rem;
+}
+/*---------------Accueil---------------------*/
+.accueil img {
+    width: 100%;
+    height: 93.2vh;
+    object-fit: cover;
+    display: block;
+}
+.accueil h1:nth-of-type(1){
+    position: absolute;
+    top: 30%;
+    left: 14%;
+    transform: translate(-50%, -50%);
+    font-size: 4rem;
+    color: #000000;
+    font-weight: 600;
+    font-family: "Playfair Display", system-ui;
+    
+}
+.accueil h1:nth-of-type(2){
+    position: absolute;
+    top: 42%;
+    left: 22%;
+    transform: translate(-50%, -50%);
+    font-size: 4rem;
+    color: #000000;
+    font-weight: 600;
+    font-family: "Playfair Display", system-ui;
+}
+.accueil h1:nth-of-type(3) {
+    color:#2A7D6B;
+    position: absolute;
+    top: 55%;
+    left: 15%;
+    transform: translate(-50%, -50%);
+    font-size: 4rem;
+    font-weight: 600;
+    font-family: "Playfair Display", system-ui;
+}
+.description {
+    top: 61%;
+    left: 1%;
+    position: absolute;
+    width: 70%;
+    font-family: 'Lato' , sans-serif;
+    font-size:16px;
+    line-height: 1.6;
+    color:#4b5c63;
+}
+.accueil button{
+    position: absolute;
+    top: 85%;
+    left: 45%;
+    transform: translate(-50%, -50%);
+    padding: 0.8rem 1.5rem;
+    background-color: #2A7D6B;
+    color: #ffffff;
+    border: none;
+    font-size: 1rem;
+    cursor: pointer;
+    font-family: Poppins Regular sans-serif (400);
+}
+/*---------------About---------------------*/
+.about .material-symbols-outlined {
+    color: #2B8A78;
+    font-variation-settings:
+    'FILL' 0,
+    'wght' 400,
+    'GRAD' 0,
+    'opsz' 48;
+}
+.about{
+    background: #f6f9f8;
+}
+
+.title span{
+    color: #2B8A78;
+    font-weight: 600;
+    letter-spacing: 8px;
+}
+
+.line-icon{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    margin-top: 15px;
+    font-weight: bold;
+}
+
+.line-icon span{
+    width: 90px;
+    height: 2px;
+    background: #2B8A78;
+}
+
+.line-icon i{
+    font-size: 2rem;
+    color: #2B8A78;
+}
+
+.about-img{
+    border-radius: 35px;
+    overflow: hidden;
+    box-shadow: 0 20px 40px rgba(0,0,0,.12);
+}
+
+.about-img img{
+    width: 100%;
+    height: 700px;
+    object-fit: cover;
+}
+
+.about-heading{
+    font-family: 'Playfair Display', serif;
+    font-size: 4rem;
+    color: #0D2B3E;
+    font-weight: 700;
+    margin-bottom: 50px;
+}
+
+.info-box{
+    display: flex;
+    align-items: flex-start;
+    gap: 25px;
+    margin-bottom: 35px;
+}
+
+.info-box i{
+    width: 70px;
+    height: 70px;
+    background: #edf5f2;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.8rem;
+    color: #2B8A78;
+    flex-shrink: 0;
+}
+
+.info-box p{
+    color: #555;
+    font-size: 1.1rem;
+    line-height: 1.9;
+}
+
+.services-card{
+    background: white;
+    padding: 35px;
+    border-radius: 25px;
+    box-shadow: 0 15px 35px rgba(0,0,0,.08);
+}
+
+.service{
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.service i{
+    width: 60px;
+    height: 60px;
+    background: #edf5f2;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #2B8A78;
+    font-size: 1.5rem;
+}
+
+.service span{
+    color: #333;
+    font-weight: 500;
+}
+
+/*---------------Nos Produits---------------------*/
+.icon {
+    position: absolute;
+    top: 50px;
+    left:35px;
+}
+.icon ul li {
+    list-style-type: none;
+    display: inline-block;
+    cursor: pointer;
+    /*background-color: ;*/
+    width: 32px;
+    height:32px;
+    text-align: center;
+    line-height: 40px;
+    border-radius: 50%;
+    display: none;
+}
+.card:hover .icon ul li{
+    display: inline-block;
+    transition: 2s;
+}
+.icon ul li .material-symbols-outlined  {
+    color:#10ac84;
+    font-size: 30px;
+}
+
+.rating .material-symbols-outlined{
+    color: #ff9f43;
+    font-size: 12px;
+}
+.rating span{
+    color: #ff9f43;
+    font-size: 12px;
+}
+.product-name{
+    font-size: 20px;
+    color: #10ac84;
+    font-weight: 900;
+    margin-bottom: -10px;
+}
+hr{
+    width: 50px;
+    margin: auto;
+    /*color: #10ac84;*/
+    border:none;
+    border-top: 3px solid #222;
+    margin-bottom:10px;
+}
+.price{
+    font-size: 20px;
+    color: #000;
+    font-weight: 900;
+    margin-top :-10px;
+}
+.card{
+    border: 1px solid #ccc ;
+    border-radius: 10px;
+}
+.card:hover{
+    box-shadow: 0 0 3px #ccc;
+    transform: scale(1.05);
+    transition: 1s linear;
+    cursor: pointer;
+}
+.produits .col-lg-3:nth-child(n+5) { 
+    margin-top: 15px;
+}
+#productCarousel{
+    position: relative;
+}
+
+.carousel-control-prev{
+    width: 45px;
+    left: -60px;     /* à gauche des produits */
+}
+
+.carousel-control-next{
+    width: 45px;
+    right: -60px;     /* à droite des produits */
+}
+.carousel-control-prev,
+.carousel-control-next{
+    width:50px;
+}
+.carousel-control-prev-icon,
+.carousel-control-next-icon{
+    width: 50px;
+    height: 50px;
+    background-color: #3a9c86 ;
+    border-radius: 50%;
+    background-size: 20px;
+    
+}
+.carousel-indicators [data-bs-target]{
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: #d6d6d6;
+    opacity: 1;
+    margin: 0 6px;
+    transition: all .3s ease;
+}
+
+.carousel-indicators .active{
+    background-color: #2B8A78;
+    
+}
+.cart-card{
+    background: white;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 15px;
+    margin-bottom: 15px;
+}
+/*---------------Services---------------------*/
+.services{
+    background:;
+    font-family: poppins ;
+}
+.services .section-header{
+    text-align:center;
+    margin-bottom: 30px;
+    margin-top: 15px;
+}
+.services .section-header p {
+    font-size: 18px;
+}
+.services  .single-service{
+    border: 1px solid #ebebeb;
+    text-align: center;
+    background: #fff;
+}
+.services .service-bg{
+    height: 200px;
+    position: relative;
+}
+.services .service-bg-1{
+    background: url("imgs/logo.png");
+    -webkit-background-size: cover ;
+    background-size:cover;
+    background-position: center ;
+}
+.services .service-bg-2{
+    background: url("imgs/logo.png");
+    -webkit-background-size: cover ;
+    background-size:cover;
+    background-position: center ;
+}
+.services .service-bg-3{
+    background: url("imgs/logo.png");
+    -webkit-background-size: cover ;
+    background-size:cover;
+    background-position: center ;
+}
+.services .service-bg h2{
+    color: #fff;
+    background: #2B8A78 ;
+    border: 1px solid #2B8A78;
+    font-size: 17px;
+    text-align: center;
+    font-weight: 700;
+    padding: 15px ;
+    position: absolute;
+    left: 8% ;
+    width: 84%;
+    margin: 0;
+    bottom: -25px;
+    border-radius: 50px;
+    letter-spacing: 2px;
+}
+.services .single-service:hover .service-bg h2 {
+    background: #fff;
+    transition: .9s;
+    color: #2B8A78;
+}
+.services .service-text{
+    padding: 50px 30px 20px ;
+    font-size: 15px;
+    font-weight: 400;
+}
+@media only screen and (max-width: 767px){
+    .services .single-service{
+        margin-bottom: 30px;
+    }
+    .services .service-bg h2{
+        font-size: 13px;
+    }
+}
