@@ -16,6 +16,7 @@ document.querySelectorAll('.nav-item').forEach(item => {
     });
 });
 
+
 // NOS PRODUITS SECTION
 
 let cart = [];
@@ -198,3 +199,6 @@ function decreaseQuantity() {
     });
 
 }
+
+
+

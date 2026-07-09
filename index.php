@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -14,6 +17,25 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+
+    const toastElement = document.getElementById("successToast");
+
+    if (toastElement) {
+
+        const toast = bootstrap.Toast.getOrCreateInstance(toastElement);
+
+        setTimeout(() => {
+            toast.hide();
+        }, 7000); // 7 secondes
+
+    }
+
+});
+</script>
+
 <body>
     <!-- NavBar-->
     <nav class="navbar ">
@@ -820,26 +842,80 @@
                         </div>
                     </div>
                     
-                    <div class="col-md-4 ">
+                    <div class="col-md-4">
                         <div class="border p-4 text-center h-100 souscontact">
+
                             <h1 class="fw-bold mb-4">Contactez-nous</h1>
-                            <div class="row mt-3">
-                                <div class="col-12">
-                                    <input type="text" placeholder="Nom" class="form-control">
+
+                            <form action="traitement.php" method="POST">
+
+                                <div class="row mt-3">
+
+                                    <div class="col-12">
+                                        <input type="text"
+                                               name="nom"
+                                               placeholder="Nom"
+                                               class="form-control"
+                                               required>
+                                    </div>
+
+                                    <div class="col-12 mt-3">
+                                        <input type="email"
+                                               name="email"
+                                               placeholder="Email"
+                                               class="form-control"
+                                               required>
+                                    </div>
+                                
+                                    <div class="col-12 mt-3">
+                                        <input type="text"
+                                               name="telephone"
+                                               placeholder="Phone Number"
+                                               class="form-control"
+                                               required>
+                                    </div>
+
+                                    <div class="col-12 mt-3">
+                                        <textarea placeholder="Message" name="message"class="form-control" rows="5"></textarea>
+                                    </div>
+
+                                    <div class="col-12 mt-3">
+                                        <button type="submit"
+                                                class="btn btn-succes rounded-pill ps-5 pe-5">
+                                            Envoyer
+                                        </button>
+                                    </div>
+                                    <?php if (isset($_SESSION["success"])): ?>
+                                        <div class="position-fixed top-0 end-0 p-3" style="z-index:1080">
+
+                                            <div id="successToast" class="toast show text-bg-success border-0 shadow" role="alert" data-bs-theme="dark">
+
+                                                <div class="d-flex">
+
+                                                    <div class="toast-body">
+
+                                                        <i class="bi bi-check-circle-fill me-2"></i>
+
+                                                        <strong>Succès !</strong><br>
+
+                                                        Votre message a été envoyé avec succès.
+                                                        Nous vous répondrons dans les plus brefs délais.
+
+                                                    </div>
+
+            
+
+                                                </div>
+
+                                            </div>
+
+                                        </div>
+                                    <?php unset($_SESSION["success"]); ?><?php endif; ?>
+
                                 </div>
-                                <div class="col-12 mt-3">
-                                    <input type="email" placeholder="Email" class="form-control">
-                                </div>
-                                <div class="col-12 mt-3">
-                                    <input type="email" placeholder="Phone Number" class="form-control">
-                                </div>
-                                <div class="col-12 mt-3">
-                                    <textarea placeholder="Message" class="form-control" rows="5"></textarea>
-                                </div>
-                                <div class="col-12 mt-3">
-                                    <button class="btn btn-succe rounded-pill pt-1 pb-1 ps-5  pe-5 ">Envoyer</button>
-                                </div>
-                            </div>
+
+                            </form>
+
                         </div>
                     </div>
                 </div>
