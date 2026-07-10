@@ -1,0 +1,153 @@
+body{
+    background:#f6f9f8;
+    font-family:Arial, Helvetica, sans-serif;
+}
+.appointment{
+    min-height:100vh;
+    display:flex;
+    align-items:center;
+}
+.sidebar{
+    background:#f6f9f8;
+    border-right:1px solid #ECECEC;
+    padding:40px;
+}
+.steps{
+    position:relative;
+}
+.steps::before{
+    content:"";
+    position:absolute;
+    left:16px;
+    top:0;
+    width:2px;
+    height:100%;
+    background:#dfe4ea;
+}
+.step{
+    position:relative;
+    display:flex;
+    align-items:center;
+    margin-bottom:35px;
+    z-index:2;
+}
+.circle{
+    width:32px;
+    height:32px;
+    border-radius:50%;
+    background:#e9ecef;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-weight:bold;
+    margin-right:15px;
+}
+.step.active .circle{
+    background:#B9E44C;
+    color:black;
+}
+.step.current .circle{
+    background:#CBEA45;
+}
+.step span{
+    font-size:15px;
+}
+
+.service-card{
+    cursor: pointer;
+    transition: .3s;
+    background: #f6f9f8;
+    padding: 10px;
+    border-radius: 10px;
+    border: 2px solid #f6f9f8;
+}
+
+.service-card.active{
+    border: 2px solid #198754;
+    background: #198754 ;
+    color: #fff;
+}
+.service-card:hover{
+    border: 2px solid #198754;
+    background: #198754 ;
+    color: #fff;
+}
+
+.step-content{
+    opacity:0;
+    transform:translateX(40px);
+    visibility:hidden;
+    display:none;
+    transition:opacity .5s ease, transform .5s ease;
+}
+
+.step-content.show{
+    opacity:1;
+    transform:translateX(0);
+    visibility:visible;
+    display:block;
+}
+
+#step1{
+    display:block;
+}
+
+#step2 {
+    display:none;
+}
+#dates{
+    padding: 0px;
+    display:flex;
+    gap:15px;
+    flex-wrap:wrap;
+}
+.date-card{
+    width:90px;
+    height:110px;
+    border:2px solid #dee2e6;
+    border-radius:15px;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    cursor:pointer;
+    transition:.3s;
+}
+.date-card:hover{
+    border: 2px solid #198754;
+    background: #198754 ;
+    color: #fff;
+}
+.date-card.active{
+    background: #0f6b43;
+    color: white;
+}
+.date-card.disabled{
+    background: #f5f5f5;
+    color: #999;
+    border-color: #ddd;
+    cursor:not-allowed;
+    opacity: 0.6;
+}
+.date-card.disabled:hover{
+    background-color: #f5f5f5;
+}
+.day{
+    border: 1px solid #000000;
+    margin-top: 15px;
+    font-size: 18px;
+}
+.number{
+    font-size: 30px;
+    font-weight: bold;
+}
+.month{
+    margin-bottom: 18px;
+    border: 1px solid #000000;
+    font-size: 18px;
+}
+
+#timeSlots.enabled{
+    opacity: 1;
+    pointer-events: auto;
+}
