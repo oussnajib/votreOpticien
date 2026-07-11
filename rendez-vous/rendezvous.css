@@ -146,8 +146,16 @@ body{
     border: 1px solid #000000;
     font-size: 18px;
 }
+.time-grid{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:15px;
+    background:red;
+}
 
 #timeSlots.enabled{
     opacity: 1;
     pointer-events: auto;
 }
+
+
