@@ -2,7 +2,6 @@
 session_start();
 ?>
 <!DOCTYPE html>
-<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -38,7 +37,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 <body>
     <!-- NavBar-->
-    <nav class="navbar ">
+    <nav class="navbar" id="navbar">
         <div class="container-fluid">
             <a class="navbar-brand" href="#">
                 <img src="imgs/logo.png" alt="Logo" width="30" height="24" class="d-inline-block align-text-top">
@@ -68,14 +67,6 @@ document.addEventListener("DOMContentLoaded", function () {
                     <a class="nav-link" href="#contact">Contact</a>
                 </li>
             </ul>
-            <!-- Icône Panier -->
-            <a href="#"  class="position-relative text-dark text-decoration-none mt-2" data-bs-toggle="offcanvas" data-bs-target="#cartOffcanvas">
-                <span class="material-symbols-outlined fs-2">shopping_cart</span>
-
-                <!-- Compteur -->
-                <span id="cart-count" class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">0</span>
-
-            </a>
     </nav>
     <!-- Accueil-->
     <section class="accueil" id="accueil">
@@ -89,7 +80,7 @@ document.addEventListener("DOMContentLoaded", function () {
              <br><span class="material-symbols-outlined">check_small</span> Accompagnement personnalisé 
              <br><span class="material-symbols-outlined">check_small</span> Grandes marques 
              <br><span class="material-symbols-outlined">check_small</span> Services complets 
-        <button class="btn btn-success">
+        <button class="btn btn-success" onclick="window.location.href='./rendez-vous/rendezvous.html'">
                 Prendre rendez-vous
         </button>
     </section>
@@ -219,44 +210,8 @@ document.addEventListener("DOMContentLoaded", function () {
                                 <!-- Produit 1 -->
                                 <div class="col-lg-3 col-md-6">
                                     <div class="card">
-                                        <img src="imgs/logo.png" alt="">
-                                        <div class="icon">
-                                            <ul>
-                                                <li><a href="#"><span class="material-symbols-outlined">visibility</span></a></li>
-                                                <li><a href="#" class="add-cart" data-price="33" data-name="1"><span class="material-symbols-outlined">shopping_cart</span></a></li>
-                                                <li><a href="#"><span class="material-symbols-outlined">favorite</span></a></li>
-                                            </ul>
-                                        </div>
-                                        <div class="card-body">
-                                            <div class="rating">
-                                                <span class="material-symbols-outlined">star</span>
-                                                <span class="material-symbols-outlined">star</span>
-                                                <span class="material-symbols-outlined">star</span>
-                                                <span class="material-symbols-outlined">star</span>
-                                                <span class="material-symbols-outlined">star_half</span>
-                                                <span>(4.5)</span>
-                                            </div>
-                                            <div class="product-name">
-                                                <p> Prooduct 1</p>
-                                            </div><hr>
-                                            <div class="price">
-                                                <p> 00$</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <!-- Produit 2 -->
-                                <div class="col-lg-3 col-md-6">
-                                    <div class="card">
                                             <img src="imgs/logo.png" alt="">
-                                            <div class="icon">
-                                                <ul>
-                                                    <li><a href="#"><span class="material-symbols-outlined">visibility</span></a></li>
-                                                    <li><a href="#" class="add-cart" data-price="33" data-name="2" ><span class="material-symbols-outlined">shopping_cart</span></a></li>
-                                                    <li><a href="#"><span class="material-symbols-outlined">favorite</span></a></li>
-                                                </ul>
-                                            </div>
+                                            
                                             <div class="card-body">
                                                 <div class="rating">
                                                     <span class="material-symbols-outlined">star</span>
@@ -268,10 +223,38 @@ document.addEventListener("DOMContentLoaded", function () {
                                                 </div>
                                                 <div class="product-name">
                                                     <p> Prooduct 1</p>
-                                                </div><hr>
-                                                <div class="price">
-                                                    <p> 00$</p>
                                                 </div>
+                                                <hr>
+                                                <div class="price">
+                                                    <p> 33$</p>
+                                                </div>
+                                                <button class="btn btn-primary add-cart" data-price="33" data-name="1">Ajouter au panier</button>
+                                            </div>
+                                        </div>
+                                </div>
+
+                                <!-- Produit 2 -->
+                                <div class="col-lg-3 col-md-6">
+                                    <div class="card">
+                                            <img src="imgs/logo.png" alt="">
+                                            
+                                            <div class="card-body">
+                                                <div class="rating">
+                                                    <span class="material-symbols-outlined">star</span>
+                                                    <span class="material-symbols-outlined">star</span>
+                                                    <span class="material-symbols-outlined">star</span>
+                                                    <span class="material-symbols-outlined">star</span>
+                                                    <span class="material-symbols-outlined">star_half</span>
+                                                    <span>(4.5)</span>
+                                                </div>
+                                                <div class="product-name">
+                                                    <p> Prooduct 2</p>
+                                                </div>
+                                                <hr>
+                                                <div class="price">
+                                                    <p> 33$</p>
+                                                </div>
+                                                <button class="btn btn-primary add-cart" data-price="33" data-name="2">Ajouter au panier</button>
                                             </div>
                                         </div>
                                 </div>
@@ -280,13 +263,7 @@ document.addEventListener("DOMContentLoaded", function () {
                                 <div class="col-lg-3 col-md-6">
                                     <div class="card">
                                             <img src="imgs/logo.png" alt="">
-                                            <div class="icon">
-                                                <ul>
-                                                    <li><a href="#"><span class="material-symbols-outlined">visibility</span></a></li>
-                                                    <li><a href="#" class="add-cart" data-price="33" data-name="3" ><span class="material-symbols-outlined">shopping_cart</span></a></li>
-                                                    <li><a href="#"><span class="material-symbols-outlined">favorite</span></a></li>
-                                                </ul>
-                                            </div>
+                                            
                                             <div class="card-body">
                                                 <div class="rating">
                                                     <span class="material-symbols-outlined">star</span>
@@ -297,11 +274,12 @@ document.addEventListener("DOMContentLoaded", function () {
                                                     <span>(4.5)</span>
                                                 </div>
                                                 <div class="product-name">
-                                                    <p> Prooduct 1</p>
+                                                    <p> Prooduct 3</p>
                                                 </div><hr>
                                                 <div class="price">
-                                                    <p> 00$</p>
+                                                    <p> 88$</p>
                                                 </div>
+                                                <button class="btn btn-primary add-cart" data-price="88" data-name="3">Ajouter au panier</button>
                                             </div>
                                         </div>
                                 </div>
@@ -310,13 +288,7 @@ document.addEventListener("DOMContentLoaded", function () {
                                 <div class="col-lg-3 col-md-6">
                                     <div class="card">
                                             <img src="imgs/logo.png" alt="">
-                                            <div class="icon">
-                                                <ul>
-                                                    <li><a href="#"><span class="material-symbols-outlined">visibility</span></a></li>
-                                                    <li><a href="#" class="add-cart" data-price="33" data-name="4" ><span class="material-symbols-outlined">shopping_cart</span></a></li>
-                                                    <li><a href="#"><span class="material-symbols-outlined">favorite</span></a></li>
-                                                </ul>
-                                            </div>
+                                            
                                             <div class="card-body">
                                                 <div class="rating">
                                                     <span class="material-symbols-outlined">star</span>
@@ -327,11 +299,12 @@ document.addEventListener("DOMContentLoaded", function () {
                                                     <span>(4.5)</span>
                                                 </div>
                                                 <div class="product-name">
-                                                    <p> Prooduct 1</p>
+                                                    <p> Prooduct 4</p>
                                                 </div><hr>
                                                 <div class="price">
-                                                    <p> 00$</p>
+                                                    <p> 34$</p>
                                                 </div>
+                                                <button class="btn btn-primary add-cart" data-price="34" data-name="4">Ajouter au panier</button>
                                             </div>
                                         </div>
                                 </div>
@@ -340,13 +313,7 @@ document.addEventListener("DOMContentLoaded", function () {
                                 <div class="col-lg-3 col-md-6">
                                     <div class="card">
                                             <img src="imgs/logo.png" alt="">
-                                            <div class="icon">
-                                                <ul>
-                                                    <li><a href="#"><span class="material-symbols-outlined">visibility</span></a></li>
-                                                    <li><a href="#" class="add-cart" data-price="33" data-name="5"><span class="material-symbols-outlined">shopping_cart</span></a></li>
-                                                    <li><a href="#"><span class="material-symbols-outlined">favorite</span></a></li>
-                                                </ul>
-                                            </div>
+                                            
                                             <div class="card-body">
                                                 <div class="rating">
                                                     <span class="material-symbols-outlined">star</span>
@@ -357,11 +324,12 @@ document.addEventListener("DOMContentLoaded", function () {
                                                     <span>(4.5)</span>
                                                 </div>
                                                 <div class="product-name">
-                                                    <p> Prooduct 1</p>
+                                                    <p> Prooduct 5</p>
                                                 </div><hr>
                                                 <div class="price">
-                                                    <p> 00$</p>
+                                                    <p> 79$</p>
                                                 </div>
+                                                <button class="btn btn-primary add-cart" data-price="79" data-name="5">Ajouter au panier</button>
                                             </div>
                                         </div>
                                 </div>
@@ -370,13 +338,7 @@ document.addEventListener("DOMContentLoaded", function () {
                                 <div class="col-lg-3 col-md-6">
                                     <div class="card">
                                             <img src="imgs/logo.png" alt="">
-                                            <div class="icon">
-                                                <ul>
-                                                    <li><a href="#"><span class="material-symbols-outlined">visibility</span></a></li>
-                                                    <li><a href="#" class="add-cart" data-price="33" data-name="6"><span class="material-symbols-outlined">shopping_cart</span></a></li>
-                                                    <li><a href="#"><span class="material-symbols-outlined">favorite</span></a></li>
-                                                </ul>
-                                            </div>
+                                            
                                             <div class="card-body">
                                                 <div class="rating">
                                                     <span class="material-symbols-outlined">star</span>
@@ -387,11 +349,12 @@ document.addEventListener("DOMContentLoaded", function () {
                                                     <span>(4.5)</span>
                                                 </div>
                                                 <div class="product-name">
-                                                    <p> Prooduct 1</p>
+                                                    <p> Prooduct 6</p>
                                                 </div><hr>
                                                 <div class="price">
-                                                    <p> 00$</p>
+                                                    <p> 120$</p>
                                                 </div>
+                                                <button class="btn btn-primary add-cart" data-price="120" data-name="6">Ajouter au panier</button>
                                             </div>
                                         </div>
                                 </div>
@@ -400,13 +363,7 @@ document.addEventListener("DOMContentLoaded", function () {
                                 <div class="col-lg-3 col-md-6">
                                     <div class="card">
                                             <img src="imgs/logo.png" alt="">
-                                            <div class="icon">
-                                                <ul>
-                                                    <li><a href="#"><span class="material-symbols-outlined">visibility</span></a></li>
-                                                    <li><a href="#" class="add-cart" data-price="33" data-name="7" ><span class="material-symbols-outlined">shopping_cart</span></a></li>
-                                                    <li><a href="#"><span class="material-symbols-outlined">favorite</span></a></li>
-                                                </ul>
-                                            </div>
+                                            
                                             <div class="card-body">
                                                 <div class="rating">
                                                     <span class="material-symbols-outlined">star</span>
@@ -417,11 +374,12 @@ document.addEventListener("DOMContentLoaded", function () {
                                                     <span>(4.5)</span>
                                                 </div>
                                                 <div class="product-name">
-                                                    <p> Prooduct 1</p>
+                                                    <p> Prooduct 7</p>
                                                 </div><hr>
                                                 <div class="price">
-                                                    <p> 00$</p>
+                                                    <p> 55$</p>
                                                 </div>
+                                                <button class="btn btn-primary add-cart" data-price="55" data-name="7">Ajouter au panier</button>
                                             </div>
                                         </div>
                                 </div>
@@ -430,13 +388,6 @@ document.addEventListener("DOMContentLoaded", function () {
                                 <div class="col-lg-3 col-md-6">
                                     <div class="card">
                                             <img src="imgs/logo.png" alt="">
-                                            <div class="icon">
-                                                <ul>
-                                                    <li><a href="#"><span class="material-symbols-outlined">visibility</span></a></li>
-                                                    <li><a href="#" class="add-cart" data-price="33" data-name="8" ><span class="material-symbols-outlined">shopping_cart</span></a></li>
-                                                    <li><a href="#"><span class="material-symbols-outlined">favorite</span></a></li>
-                                                </ul>
-                                            </div>
                                             <div class="card-body">
                                                 <div class="rating">
                                                     <span class="material-symbols-outlined">star</span>
@@ -447,11 +398,12 @@ document.addEventListener("DOMContentLoaded", function () {
                                                     <span>(4.5)</span>
                                                 </div>
                                                 <div class="product-name">
-                                                    <p> Prooduct 1</p>
+                                                    <p> Prooduct 8</p>
                                                 </div><hr>
                                                 <div class="price">
-                                                    <p> 00$</p>
+                                                    <p> 89$</p>
                                                 </div>
+                                                <button class="btn btn-primary add-cart" data-price="89" data-name="8">Ajouter au panier</button>
                                             </div>
                                         </div>
                                 </div>
@@ -467,13 +419,7 @@ document.addEventListener("DOMContentLoaded", function () {
                                 <div class="col-lg-3 col-md-6">
                                     <div class="card">
                                             <img src="imgs/logo.png" alt="">
-                                            <div class="icon">
-                                                <ul>
-                                                    <li><a href="#"><span class="material-symbols-outlined">visibility</span></a></li>
-                                                    <li><a href="#" class="add-cart" data-price="33" data-name="9" ><span class="material-symbols-outlined">shopping_cart</span></a></li>
-                                                    <li><a href="#"><span class="material-symbols-outlined">favorite</span></a></li>
-                                                </ul>
-                                            </div>
+                                            
                                             <div class="card-body">
                                                 <div class="rating">
                                                     <span class="material-symbols-outlined">star</span>
@@ -484,11 +430,12 @@ document.addEventListener("DOMContentLoaded", function () {
                                                     <span>(4.5)</span>
                                                 </div>
                                                 <div class="product-name">
-                                                    <p> Prooduct 1</p>
+                                                    <p> Prooduct 9</p>
                                                 </div><hr>
                                                 <div class="price">
                                                     <p> 00$</p>
                                                 </div>
+                                                <button class="btn btn-primary add-cart" data-price="00" data-name="9">Ajouter au panier</button>
                                             </div>
                                         </div>
                                 </div>
@@ -497,13 +444,7 @@ document.addEventListener("DOMContentLoaded", function () {
                                 <div class="col-lg-3 col-md-6">
                                     <div class="card">
                                             <img src="imgs/logo.png" alt="">
-                                            <div class="icon">
-                                                <ul>
-                                                    <li><a href="#"><span class="material-symbols-outlined">visibility</span></a></li>
-                                                    <li><a href="#" class="add-cart" data-price="33" data-name="10" ><span class="material-symbols-outlined">shopping_cart</span></a></li>
-                                                    <li><a href="#"><span class="material-symbols-outlined">favorite</span></a></li>
-                                                </ul>
-                                            </div>
+                                            
                                             <div class="card-body">
                                                 <div class="rating">
                                                     <span class="material-symbols-outlined">star</span>
@@ -514,11 +455,12 @@ document.addEventListener("DOMContentLoaded", function () {
                                                     <span>(4.5)</span>
                                                 </div>
                                                 <div class="product-name">
-                                                    <p> Prooduct 1</p>
+                                                    <p> Prooduct 10</p>
                                                 </div><hr>
                                                 <div class="price">
                                                     <p> 00$</p>
                                                 </div>
+                                                <button class="btn btn-primary add-cart" data-price="00" data-name="10">Ajouter au panier</button>
                                             </div>
                                         </div>
                                 </div>
@@ -590,7 +532,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 <span id="cart-total">0 DH</span>
             </h5>
 
-            <button class="btn btn-primary w-100 mt-3">
+            <button class="btn btn-primary w-100 mt-3 " onclick="window.location.href='./paiement-online/paiement.html'">
                 Commander
             </button>
 
@@ -720,7 +662,7 @@ document.addEventListener("DOMContentLoaded", function () {
                             <div class="col-12">
                                 <img src="imgs/logoV2.jpeg"
                                      class="img-fluid w-100 rounded object-fit-cover"
-                                     style="height:227px;">
+                                     style="height:230px;">
                             </div>
                         
                         </div>
@@ -847,7 +789,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
                             <h1 class="fw-bold mb-4">Contactez-nous</h1>
 
-                            <form action="traitement.php" method="POST">
+                            <!--<form action="traitement.php" method="POST"> -->
 
                                 <div class="row mt-3">
 
@@ -885,7 +827,7 @@ document.addEventListener("DOMContentLoaded", function () {
                                             Envoyer
                                         </button>
                                     </div>
-                                    <?php if (isset($_SESSION["success"])): ?>
+                                    <!--<?php if (isset($_SESSION["success"])): ?>
                                         <div class="position-fixed top-0 end-0 p-3" style="z-index:1080">
 
                                             <div id="successToast" class="toast show text-bg-success border-0 shadow" role="alert" data-bs-theme="dark">
@@ -914,7 +856,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
                                 </div>
 
-                            </form>
+                            </form> -->
 
                         </div>
                     </div>
@@ -950,7 +892,7 @@ document.addEventListener("DOMContentLoaded", function () {
                         <h6>NAVIGATION</h6>
 
                         <ul class="list-unstyled">
-                            <li><a href="#acueil">Accueil</a></li>
+                            <li><a href="#navbar">Accueil</a></li>
                             <li><a href="#about">À propos</a></li>
                             <li><a href="#produits">Nos Produits</a></li>
                             <li><a href="#service">Nos Services</a></li>
@@ -991,7 +933,22 @@ document.addEventListener("DOMContentLoaded", function () {
             <h1 class="footer-title">VOTREOPTICIEN</h1>
 
         </footer>
-        
+        <!-- shoppingCart Button -->
+        <a href="#"
+                class="shopping-cart-icon position-fixed bottom-0 end-0 ms-2 me-4 text-dark text-decoration-none"
+                data-bs-toggle="offcanvas"
+                data-bs-target="#cartOffcanvas">
+
+                <span class="material-symbols-outlined fs-2">
+                    shopping_cart
+                </span>
+
+                <span id="cart-count"
+                      class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                    0
+                </span>
+
+        </a>
         <a href="https://wa.me/212600000000" target="_blank" class="whatsapp-btn">
             <i class="bi bi-whatsapp fs-4"></i>
         </a>

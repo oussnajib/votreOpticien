@@ -12,9 +12,6 @@ body{
     gap: 0.8rem 2rem;
     background-color: #ffffff;
 }
-.navbar-brand{
-    border: 2px solid black;
-}
 .navbar {
     padding: 0;
     margin: 0;
@@ -61,7 +58,7 @@ body{
 /*---------------Accueil---------------------*/
 .accueil img {
     width: 100%;
-    height: 93.2vh;
+    height: 94vh;
     object-fit: cover;
     display: block;
 }
@@ -235,37 +232,13 @@ body{
 }
 
 /*---------------Nos Produits---------------------*/
-.icon {
-    position: absolute;
-    top: 50px;
-    left:35px;
-}
-.icon ul li {
-    list-style-type: none;
-    display: inline-block;
-    cursor: pointer;
-    /*background-color: ;*/
-    width: 32px;
-    height:32px;
-    text-align: center;
-    line-height: 40px;
-    border-radius: 50%;
-    display: none;
-}
-.card:hover .icon ul li{
-    display: inline-block;
-    transition: 2s;
-}
-.icon ul li .material-symbols-outlined  {
-    color:#10ac84;
-    font-size: 30px;
-}
 
 .rating .material-symbols-outlined{
     color: #ff9f43;
     font-size: 12px;
 }
 .rating span{
+    margin-top: 110px;
     color: #ff9f43;
     font-size: 12px;
 }
@@ -281,6 +254,7 @@ hr{
     /*color: #10ac84;*/
     border:none;
     border-top: 3px solid #222;
+    margin-top: 10px;
     margin-bottom:10px;
 }
 .price{
@@ -295,7 +269,6 @@ hr{
 }
 .card:hover{
     box-shadow: 0 0 3px #ccc;
-    transform: scale(1.05);
     transition: 1s linear;
     cursor: pointer;
 }
@@ -349,6 +322,18 @@ hr{
     padding: 15px;
     margin-bottom: 15px;
 }
+.add-cart{
+    width: 200px;
+    height: 40px;
+    background-color: #2B8A78;
+    color: #fff;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-bottom: 15px;
+}
+.add-cart:hover{
+    background-color: #10ac84;
+}
 /*---------------Services---------------------*/
 .services{
     background: f6f9f8;
@@ -366,6 +351,10 @@ hr{
     border: 1px solid #ebebeb;
     text-align: center;
     background: #fff;
+    padding: 30px 15px;
+    border-radius: 5px;
+    transition: all .3s ease;
+    margin-bottom: 15px;
 }
 .services .service-bg{
     height: 200px;
@@ -553,7 +542,17 @@ hr{
     background: white;
     border-radius: 10px;
 }
-
+.shopping-cart-icon{
+    margin-bottom: 80px;
+    display: inline-flex;
+    justify-content: center;
+    align-items:center;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: white;
+    right: 20px;
+}
 .whatsapp-btn {
     position: fixed;
     display: inline-flex;

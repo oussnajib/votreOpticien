@@ -87,14 +87,6 @@ body{
     visibility:visible;
     display:block;
 }
-
-#step1{
-    display:block;
-}
-
-#step2 {
-    display:none;
-}
 #dates{
     padding: 0px;
     display:flex;
@@ -133,7 +125,6 @@ body{
     background-color: #f5f5f5;
 }
 .day{
-    border: 1px solid #000000;
     margin-top: 15px;
     font-size: 18px;
 }
@@ -143,16 +134,43 @@ body{
 }
 .month{
     margin-bottom: 18px;
-    border: 1px solid #000000;
     font-size: 18px;
 }
 .time-grid{
     display:grid;
     grid-template-columns:repeat(4,1fr);
     gap:15px;
-    background:red;
+    /*background:red;*/
 }
-
+.time-btn{
+     border:2px solid #dee2e6;
+    border-radius:15px;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    cursor:pointer;
+    transition:.3s;
+}
+.time-btn:hover{
+    border: 2px solid #198754;
+    background: #198754 ;
+    color: #fff;
+}
+.time-btn.active{
+    background: #0f6b43;
+    color: white;
+}
+.time-btn.disabled{
+    background: #f5f5f5;
+    color: #999;
+    border-color: #ddd;
+    cursor:not-allowed;
+    opacity: 0.6;
+}
+.time-btn.disabled:hover{
+    background-color: #f5f5f5;
+}
 #timeSlots.enabled{
     opacity: 1;
     pointer-events: auto;
