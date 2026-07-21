@@ -229,8 +229,8 @@
                             <p class="text-muted mb-5">
                                 Veuillez renseigner vos informations personnelles.
                             </p>
-
-                            <div class="row g-4">
+                            
+                                    <div class="row g-4">
 
                                 <div class="col-md-6">
                                     <label class="form-label">Prénom</label>
@@ -263,7 +263,8 @@
                                         placeholder="Écrivez votre message..."></textarea>
                                 </div>
 
-                            </div>
+                                    </div>
+                            
                         </div>
 
                         <!-- STEP 4 -->
@@ -320,15 +321,15 @@
                                         <div class="col-4 fw-bold">Message :</div>
                                         <div class="col-8" id="reviewMessage"></div>
                                     </div>
-                                    <input type="hidden" name="service" id="serviceInput">
-                                    <input type="hidden" name="sous_service" id="subServiceInput">
-                                    <input type="hidden" name="date" id="dateInput">
-                                    <input type="hidden" name="heure" id="timeInput">
-                                    <input type="hidden" name="prenom" id="prenomInput">
-                                    <input type="hidden" name="nom" id="nomInput">
-                                    <input type="hidden" name="email" id="emailInput">
-                                    <input type="hidden" name="telephone" id="telephoneInput">
-                                    <input type="hidden" name="message" id="messageInput">
+                                    <input type="hidden" name="service" id="serviceInput" value="">
+                                    <input type="hidden" name="sous_service" id="subServiceInput" value="">
+                                    <input type="hidden" name="date" id="dateInput" value="" >
+                                    <input type="hidden" name="heure" id="timeInput" value="" >
+                                    <input type="hidden" name="prenom" id="prenomInput" value="" >
+                                    <input type="hidden" name="nom" id="nomInput" value="" >
+                                    <input type="hidden" name="email" id="emailInput" value="" >
+                                    <input type="hidden" name="telephone" id="telephoneInput" value="" >
+                                    <input type="hidden" name="message" id="messageInput" value="" >
 
                                 </div>
 
@@ -345,7 +346,7 @@
                         </button>
 
                         <button id="continueBtn"
-                                type="submit"
+                                type="button"
                                 class="btn btn-success px-5 py-3 rounded-pill"
                                 disabled>
                             Continue
@@ -360,8 +361,7 @@
         </div>
 
     </section>
-
-<script src="./rendezvous.js"></script>
+<script src="./rv.js"></script> 
 </body>
 
 </html>

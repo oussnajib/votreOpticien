@@ -80,7 +80,7 @@ document.addEventListener("DOMContentLoaded", function () {
              <br><span class="material-symbols-outlined">check_small</span> Accompagnement personnalisé 
              <br><span class="material-symbols-outlined">check_small</span> Grandes marques 
              <br><span class="material-symbols-outlined">check_small</span> Services complets 
-        <button class="btn btn-success" onclick="window.location.href='./rendez-vous/rendezvous.html'">
+        <button class="btn btn-success" onclick="window.location.href='./rendez-vous/rendezvous.php'">
                 Prendre rendez-vous
         </button>
     </section>
@@ -789,7 +789,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
                             <h1 class="fw-bold mb-4">Contactez-nous</h1>
 
-                            <!--<form action="traitement.php" method="POST"> -->
+                            <form action="traitement.php" method="POST"> 
 
                                 <div class="row mt-3">
 
@@ -827,7 +827,7 @@ document.addEventListener("DOMContentLoaded", function () {
                                             Envoyer
                                         </button>
                                     </div>
-                                    <!--<?php if (isset($_SESSION["success"])): ?>
+                                    <?php if (isset($_SESSION["success"])): ?>
                                         <div class="position-fixed top-0 end-0 p-3" style="z-index:1080">
 
                                             <div id="successToast" class="toast show text-bg-success border-0 shadow" role="alert" data-bs-theme="dark">
@@ -856,7 +856,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
                                 </div>
 
-                            </form> -->
+                            </form> 
 
                         </div>
                     </div>

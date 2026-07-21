@@ -1,10 +1,9 @@
-    // Variables globales
+console.log("TEst");
+
+      // Variables globales
 let currentStep = 1;
-const continueBtn1 = document.getElementById("continueBtn1");
 const continueBtn = document.getElementById("continueBtn");
 const backBtn = document.getElementById("backBtn");
-
-
     // Selected values
 let selectedService = "";
 let selectedSubService = "";
@@ -35,10 +34,6 @@ const lastName = document.getElementById("lastName");
 const email = document.getElementById("email");
 const phone = document.getElementById("phone");
 const message = document.getElementById("message");
-
-// ==========================================
-// DATA
-// ==========================================
 
 // Services et sous-services
 const services = {
@@ -87,7 +82,6 @@ const services = {
     ]
 
 };
-
 
 // Horaires par jour
 const schedules = {
@@ -162,10 +156,6 @@ const schedules = {
     ]
 
 };
-// Navigation (Continue / Back)
-// ==========================================
-// NAVIGATION FUNCTIONS
-// ==========================================
 
 // Afficher une étape
 function showStep(stepNumber) {
@@ -186,7 +176,6 @@ function showStep(stepNumber) {
 
     updateButtons();
 }
-
 
 // Mettre à jour la barre latérale
 function updateSidebar() {
@@ -212,7 +201,6 @@ function updateSidebar() {
     steps[currentStep - 1].classList.add("active");
 }
 
-
 // Mettre à jour les boutons
 function updateButtons() {
 
@@ -236,17 +224,18 @@ function updateButtons() {
             
             <i class="bi bi-check-lg ms-2"></i>
         `;
-
+        
     } else {
 
         continueBtn.innerHTML = `
             Continue
             <i class="bi bi-arrow-right ms-2"></i>
         `;
-
+        
     }
 
 }
+
 // ==========================================
 // STEP 1
 // ==========================================
@@ -328,7 +317,6 @@ function initSubServices() {
 
 }
 continueBtn.addEventListener("click", function () {
-
     switch (currentStep) {
 
         case 1:
@@ -349,8 +337,7 @@ continueBtn.addEventListener("click", function () {
             break;
 
         case 4:
-            
-            
+            saveAppointment();
             break;
     }
 
@@ -384,6 +371,7 @@ backBtn.addEventListener("click", function () {
     }
 
 });
+
 // Génération des dates (Step 2)
 // ==========================================
 // STEP 2
@@ -498,8 +486,6 @@ function selectHour(button, hour){
 
 }
 
-
-
 // ==========================================
 // STEP 3
 // ==========================================
@@ -526,85 +512,68 @@ function validateStep3() {
     }
 
 }
-// Step 4
+
 function loadReview() {
-
-    
-
+    // Affichage visible
     document.getElementById("reviewService").textContent = selectedService;
-
     document.getElementById("reviewSubService").textContent = selectedSubService;
-
-    document.getElementById("reviewDate").textContent =
-        selectedDate.toLocaleDateString("fr-FR");
-
+    document.getElementById("reviewDate").textContent = selectedDate.toLocaleDateString("fr-FR");
     document.getElementById("reviewTime").textContent = selectedTime;
+    document.getElementById("reviewName").textContent = firstName.value + " " + lastName.value;
+    document.getElementById("reviewEmail").textContent = email.value;
+    document.getElementById("reviewPhone").textContent = phone.value;
+    document.getElementById("reviewMessage").textContent = message.value || "-";
 
-    document.getElementById("reviewName").textContent =
-        firstName.value + " " + lastName.value;
-
-    document.getElementById("reviewEmail").textContent =
-        email.value;
-
-    document.getElementById("reviewPhone").textContent =
-        phone.value;
-
-    document.getElementById("reviewMessage").textContent =
-        message.value || "-";
-
+    // Inputs cachés
+    document.getElementById("serviceInput").value = selectedService;
+    document.getElementById("subServiceInput").value = selectedSubService;
+    document.getElementById("dateInput").value =
+                    selectedDate.getFullYear() + "-" +
+                    String(selectedDate.getMonth() + 1).padStart(2, "0") + "-" +
+                    String(selectedDate.getDate()).padStart(2, "0");
+    document.getElementById("timeInput").value = selectedTime;
+    document.getElementById("prenomInput").value = firstName.value;
+    document.getElementById("nomInput").value = lastName.value;
+    document.getElementById("emailInput").value = email.value;
+    document.getElementById("telephoneInput").value = phone.value;
+    document.getElementById("messageInput").value = message.value;
 }
 function saveAppointment() {
 
+    console.log("saveAppointment appelée");
+
     const formData = new FormData();
 
-    formData.append("service", selectedService);
-    formData.append("sous_service", selectedSubService);
+    formData.append("service", document.getElementById("serviceInput").value);
+    formData.append("sous_service", document.getElementById("subServiceInput").value);
+    formData.append("date", document.getElementById("dateInput").value);
+    formData.append("heure", document.getElementById("timeInput").value);
+    formData.append("prenom", document.getElementById("prenomInput").value);
+    formData.append("nom", document.getElementById("nomInput").value);
+    formData.append("email", document.getElementById("emailInput").value);
+    formData.append("telephone", document.getElementById("telephoneInput").value);
+    formData.append("message", document.getElementById("messageInput").value);
 
-    formData.append(
-        "date",
-        selectedDate.toISOString().split("T")[0]
-    );
-
-    formData.append("heure", selectedTime);
-
-    formData.append("prenom", firstName.value);
-    formData.append("nom", lastName.value);
-
-    formData.append("email", email.value);
-    formData.append("telephone", phone.value);
-
-    formData.append("message", message.value);
-
+    
     fetch("saveAppointment.php", {
+    method: "POST",
+    body: formData
+})
+.then(response => response.text())
+.then(data => {
 
-        method: "POST",
-        body: formData
+    if (data.trim() === "success") {
+        alert("✅ Rendez-vous enregistré avec succès !");
+        window.location.href = "../../votreOpticien/index.php";
+    } else {
+        alert(data);
+    }
 
-    })
-    .then(response => response.json())
-    .then(data => {
-
-        if (data.success) {
-
-            alert("✅ Rendez-vous enregistré avec succès !");
-
-            window.location.href = "index.php";
-
-        } else {
-
-            alert(data.message);
-
-        }
-
-    })
-    .catch(error => {
-
-        console.error(error);
-
-        alert("Une erreur est survenue.");
-
-    });
-
+})
+.catch(error => {
+    console.error(error);
+    alert("Une erreur est survenue.");
+});
 }
 // Initialisation
 showStep(1);

@@ -41,7 +41,7 @@ $sql = $pdo->prepare("
 
 $sql->execute([$date, $heure]);
 
-if ($sql->rowCount() > 0) {
+if ($sql->fetch()) {
     die("Ce créneau est déjà réservé.");
 }
 
