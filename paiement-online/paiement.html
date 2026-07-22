@@ -82,66 +82,64 @@
                             <div class="pay-panel active" id="tab-card">
                                     <!-- ── Carte bancaire ── -->
                                 <div class="field-group">
-        <label class="field-label">
-            Numéro de la carte <span class="required-star">*</span>
-        </label>
+                                    <label class="field-label">
+                                        Numéro de la carte <span class="required-star">*</span>
+                                    </label>
+                                    <div class="field-wrap card-input-wrap">
+                                        <i class="bi bi-credit-card-fill field-icon"></i>
 
-        <div class="field-wrap card-input-wrap">
-            <i class="bi bi-credit-card-fill field-icon"></i>
+                                        <input
+                                            type="text"
+                                            class="form-input"
+                                            id="cardNumber"
+                                            placeholder="1234 5678 9012 3456"
+                                            maxlength="19"
+                                            oninput="formatCard(this)">
 
-            <input
-                type="text"
-                class="form-input"
-                id="cardNumber"
-                placeholder="1234 5678 9012 3456"
-                maxlength="19"
-                oninput="formatCard(this)">
-
-            <span class="card-brand-icon" id="cardBrandIcon">
-                <i class="bi bi-credit-card"></i>
-            </span>
-        </div>
+                                        <span class="card-brand-icon" id="cardBrandIcon">
+                                            <i class="bi bi-credit-card"></i>
+                                        </span>
+                                    </div>
                                 </div>
-
                                 <div class="field-group">
-        <label class="field-label">
-            Nom du titulaire <span class="required-star">*</span>
-        </label>
+                                    <label class="field-label">
+                                        Nom du titulaire <span class="required-star">*</span>
+                                    </label>
 
-        <div class="field-wrap">
-            <i class="bi bi-person-fill field-icon"></i>
+                                    <div class="field-wrap">
+                                        <i class="bi bi-person-fill field-icon"></i>
 
-            <input
-                type="text"
-                class="form-input"
-                id="cardName"
-                placeholder="Nom figurant sur la carte">
-        </div>
+                                        <input
+                                            type="text"
+                                            class="form-input"
+                                            id="cardName"
+                                            placeholder="Nom figurant sur la carte">
+                                    </div>
                                 </div>
 
                                 <div class="row g-3">
 
-        <div class="col-md-6">
-            <div class="field-group">
-                <label class="field-label">
-                    Date d'expiration
-                </label>
+                                    <div class="col-md-6">
+                                        <div class="field-group">
+                                            <label class="field-label">
+                                                Date d'expiration
+                                            </label>
 
-                <div class="field-wrap">
-                    <i class="bi bi-calendar3 field-icon"></i>
+                                            <div class="field-wrap">
+                                                <i class="bi bi-calendar3 field-icon"></i>
 
-                    <input
-                        type="text"
-                        class="form-input"
-                        id="expiry"
-                        placeholder="MM / AA"
-                        maxlength="7"
-                        oninput="formatExpiry(this)">
-                </div>
-            </div>
-        </div>
+                                                <input
+                                                    type="text"
+                                                    class="form-input"
+                                                    id="expiry"
+                                                    placeholder="MM / AA"
+                                                    maxlength="7"
+                                                    oninput="formatExpiry(this)">
+                                            </div>
+                                        </div>
+                                    </div>
 
-        <div class="col-md-6">
+                                    <div class="col-md-6">
             <div class="field-group">
                 <label class="field-label">
                     CVV
@@ -158,19 +156,19 @@
                         maxlength="4">
                 </div>
             </div>
-        </div>
+                                    </div>
 
                                 </div>
 
                                 <div class="accepted-cards mt-3">
 
-        <span class="small text-muted">Cartes acceptées :</span>
+                                    <span class="small text-muted">Cartes acceptées :</span>
 
-        <div class="card-pill visa">VISA</div>
+                                    <div class="card-pill visa">VISA</div>
 
-        <div class="card-pill mc">Mastercard</div>
+                                    <div class="card-pill mc">Mastercard</div>
 
-        <div class="card-pill">CMI</div>
+                                    <div class="card-pill">CMI</div>
 
                                 </div>
 
@@ -294,39 +292,9 @@
             </div>
         </div>
     </section>
-                            
+
+    <script src="./paiement.js"></script>
 </body>
-<script>
-function setPayTab(tabElement, panelId) {
-    // Désactiver tous les onglets
-    document.querySelectorAll('.pay-tab').forEach(tab => {
-        tab.classList.remove('active');
-    });
 
-    // Activer l'onglet cliqué
-    tabElement.classList.add('active');
-
-    // Masquer tous les panels
-    document.querySelectorAll('.pay-panel').forEach(panel => {
-        panel.classList.remove('active');
-    });
-
-    // Afficher le panel correspondant
-    document.getElementById(panelId).classList.add('active');
-}
-function processPayment() {
-    const payBtn = document.getElementById("payBtn");
-    const paySpinner = document.getElementById("paySpinner");
-
-    // Activer l'état "loading"
-    payBtn.classList.add("loading");
-
-    // Simuler un délai de traitement (3 secondes)
-    setTimeout(() => {
-        payBtn.classList.remove("loading");
-        alert("Paiement effectué avec succès ✅");
-    }, 3000);
-}
-</script>
 
 </html>
