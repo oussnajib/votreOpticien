@@ -11,7 +11,11 @@ class Router
     {
         $this->routes['GET'][$uri] = $action;
     }
-
+    
+    public function post(string $uri, callable|array $action): void
+    {
+    $this->routes['POST'][$uri] = $action;
+    }
     /**
      * Exécuter une route
      */

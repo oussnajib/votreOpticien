@@ -4,16 +4,19 @@ require_once "../app/core/Autoloader.php";
 
 Autoloader::register();
 
+Session::start();
+
 $router = new Router();
 
 require_once "../routes/web.php";
 
-$uri = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
+$url = $_GET['url'] ?? '';
 
-$base = "/stage/votreOpticien/admin/public";
-
-$uri = str_replace($base, "", $uri);
-
+if ($url === '') {
+    $uri = '/';
+} else {
+    $uri = '/' . trim($url, '/');
+}
 if ($uri === "") {
     $uri = "/";
 }

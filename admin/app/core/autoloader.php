@@ -27,3 +27,4 @@ class Autoloader
         });
     }
 }
+//L'autoloader chargera automatiquement Controller et AdminDAO.

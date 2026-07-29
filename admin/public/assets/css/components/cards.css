@@ -1,0 +1,103 @@
+/* ===========================
+   STAT CARDS
+=========================== */
+
+.stat-card{
+
+    background: var(--surface);
+
+    border:1px solid var(--border);
+
+    border-radius:18px;
+
+    padding:25px;
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    box-shadow:var(--shadow-sm);
+
+    transition:.3s;
+
+    min-height:145px;
+
+}
+
+.stat-card:hover{
+
+    transform:translateY(-6px);
+
+    box-shadow:var(--shadow-lg);
+
+}
+
+.stat-left{
+
+    display:flex;
+
+    align-items:center;
+
+}
+
+.stat-icon{
+
+    width:68px;
+
+    height:68px;
+
+    border-radius:18px;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    font-size:28px;
+
+}
+
+.success{
+
+    background:#e3f2ee;
+
+    color:#3a9c86;
+
+}
+
+.primary{
+
+    background:#edf4f7;
+
+    color:#0e3245;
+
+}
+
+.stat-right{
+
+    text-align:right;
+
+}
+
+.stat-right h2{
+
+    margin:0;
+
+    font-size:34px;
+
+    font-weight:700;
+
+    color:#0e3245;
+
+}
+
+.stat-right span{
+
+    color:#4b5c63;
+
+    font-size:15px;
+
+}

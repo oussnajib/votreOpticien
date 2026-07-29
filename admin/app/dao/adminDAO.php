@@ -1,8 +1,5 @@
 <?php
 
-require_once __DIR__ . '/../core/DAO.php';
-require_once __DIR__ . '/../models/Admin.php';
-
 class AdminDAO extends DAO
 {
 
