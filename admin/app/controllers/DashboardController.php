@@ -2,9 +2,20 @@
 
 class DashboardController extends Controller
 {
-    public function index(): void
+    private AppointmentDAO $appointmentDAO;
+
+    public function __construct()
     {
         Auth::check();
-        $this->view("dashboard/index");
+        $this->appointmentDAO = new AppointmentDAO();
+    }
+
+    public function index(): void
+    {
+        $totalAppointments = $this->appointmentDAO->count();
+
+        $this->view("dashboard/index", [
+            "totalAppointments" => $totalAppointments
+        ]);
     }
 }

@@ -1,3 +1,4 @@
+
 <div class="sidebar">
 
     <div class="sidebar-header">
@@ -24,25 +25,23 @@
     <ul class="menu">
 
         <li>
-            <a href="index.php?url=dashboard" class="active">
+            <a href="index.php?url=dashboard">
                 <i class="bi bi-grid"></i>
                 <span>Tableau de bord</span>
             </a>
         </li>
 
         <li>
-            <a href="#">
+            <a href="index.php?url=appointments">
                 <i class="bi bi-calendar-check"></i>
                 <span>Rendez-vous</span>
             </a>
         </li>
 
-        <li>
-            <a href="#">
-                <i class="bi bi-eyeglasses"></i>
-                <span>Produits</span>
-            </a>
-        </li>
+        <a href="index.php?url=products">
+            <i class="bi bi-eyeglasses"></i>
+            <span>Produits</span>
+        </a>
 
         <li>
             <a href="#">

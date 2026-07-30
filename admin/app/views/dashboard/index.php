@@ -28,7 +28,7 @@
 
             <div class="stat-right">
 
-                <h2>0</h2>
+                <h2><?= $totalAppointments ?></h2>
 
                 <span>Rendez-vous</span>
 

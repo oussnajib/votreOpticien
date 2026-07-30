@@ -1,0 +1,62 @@
+.page-header{
+
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:30px;
+
+}
+
+.page-header h2{
+
+    color:var(--primary);
+    margin-bottom:5px;
+
+}
+
+.page-header p{
+
+    color:var(--text-muted);
+
+}
+
+.table-card{
+
+    background:#fff;
+    border:1px solid var(--border);
+    border-radius:18px;
+    padding:25px;
+    box-shadow:var(--shadow-sm);
+
+}
+
+.table-toolbar{
+
+    margin-bottom:20px;
+
+}
+
+.table-toolbar input{
+
+    max-width:350px;
+
+}
+
+.table thead th{
+
+    color:var(--primary);
+    font-weight:600;
+
+}
+
+.table td{
+
+    vertical-align:middle;
+
+}
+
+.table .btn{
+
+    margin-right:5px;
+
+}
