@@ -111,5 +111,6 @@ class ProductDAO
 
     return $stmt->execute([$id]);
     }
+
     
 }

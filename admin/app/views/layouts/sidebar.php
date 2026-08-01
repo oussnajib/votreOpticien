@@ -38,34 +38,22 @@
             </a>
         </li>
 
-        <a href="index.php?url=products">
-            <i class="bi bi-eyeglasses"></i>
-            <span>Produits</span>
-        </a>
+        <li>
+            <a href="index.php?url=products">
+                <i class="bi bi-eyeglasses"></i>
+                <span>Produits</span>
+            </a>
+        </li>
 
         <li>
-            <a href="#">
+            <a href="index.php?url=services">
                 <i class="bi bi-gear"></i>
                 <span>Services</span>
             </a>
         </li>
 
         <li>
-            <a href="#">
-                <i class="bi bi-images"></i>
-                <span>Galerie</span>
-            </a>
-        </li>
-
-        <li>
-            <a href="#">
-                <i class="bi bi-journal-text"></i>
-                <span>Blog</span>
-            </a>
-        </li>
-
-        <li>
-            <a href="#">
+            <a href="index.php?url=messages">
                 <i class="bi bi-envelope"></i>
                 <span>Messages</span>
             </a>

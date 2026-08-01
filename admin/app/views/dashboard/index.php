@@ -54,7 +54,7 @@
 
             <div class="stat-right">
 
-                <h2>0</h2>
+                <h2><?= $productsCount ?></h2>
 
                 <span>Produits</span>
 

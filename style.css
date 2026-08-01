@@ -360,20 +360,7 @@ hr{
     height: 200px;
     position: relative;
 }
-.services .service-bg-1{
-    background: url("imgs/logo.png");
-    -webkit-background-size: cover ;
-    background-size:cover;
-    background-position: center ;
-}
-.services .service-bg-2{
-    background: url("imgs/logo.png");
-    -webkit-background-size: cover ;
-    background-size:cover;
-    background-position: center ;
-}
-.services .service-bg-3{
-    background: url("imgs/logo.png");
+.services .service-bg{
     -webkit-background-size: cover ;
     background-size:cover;
     background-position: center ;

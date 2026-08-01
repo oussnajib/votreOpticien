@@ -58,9 +58,10 @@
 
                     <td>
 
-                        <button class="btn btn-sm btn-primary">
+                        <a href="index.php?url=products/show&id=<?= $product->getId(); ?>"
+                            class="btn btn-primary btn-sm">
                             <i class="bi bi-eye"></i>
-                        </button>
+                        </a>
 
                         <a href="index.php?url=products/edit&id=<?= $product->getId(); ?>"
                             class="btn btn-sm btn-warning">

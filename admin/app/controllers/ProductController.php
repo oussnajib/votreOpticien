@@ -23,6 +23,25 @@ class ProductController extends Controller
         ]);
     }
 
+    public function show(): void
+    {
+    if (!isset($_GET["id"])) {
+        header("Location: index.php?url=products");
+        exit;
+    }
+
+    $product = $this->productDAO->findById((int) $_GET["id"]);
+
+    if (!$product) {
+        header("Location: index.php?url=products");
+        exit;
+    }
+
+    $this->view("products/show", [
+        "product" => $product
+    ]);
+    }
+
     public function create(): void
     {
         $this->view("products/create");
@@ -147,4 +166,5 @@ class ProductController extends Controller
     exit;
     }
     
+
 }

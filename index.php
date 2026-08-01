@@ -1,6 +1,20 @@
 <?php
 session_start();
+
+
+require_once "./configs/connexion.php";
+
+$sql = "SELECT * FROM produits ORDER BY id DESC";
+$stmt = $pdo->query($sql);
+$products = $stmt->fetchAll(PDO::FETCH_ASSOC);
+$productGroups = array_chunk($products, 8);
+
+
+$stmt = $pdo->query("SELECT * FROM services ORDER BY id DESC");
+$services = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
 ?>
+
 <!DOCTYPE html>
 <head>
     <meta charset="UTF-8">
@@ -203,272 +217,63 @@ document.addEventListener("DOMContentLoaded", function () {
 
                     <div class="carousel-inner">
 
-                        <!-- Slide 1 -->
-                        <div class="carousel-item active">
-                            <div class="row g-4 py-5">
+                        <?php foreach ($productGroups as $index => $group): ?>
 
-                                <!-- Produit 1 -->
-                                <div class="col-lg-3 col-md-6">
-                                    <div class="card">
-                                            <img src="imgs/logo.png" alt="">
-                                            
-                                            <div class="card-body">
-                                                <div class="rating">
-                                                    <span class="material-symbols-outlined">star</span>
-                                                    <span class="material-symbols-outlined">star</span>
-                                                    <span class="material-symbols-outlined">star</span>
-                                                    <span class="material-symbols-outlined">star</span>
-                                                    <span class="material-symbols-outlined">star_half</span>
-                                                    <span>(4.5)</span>
-                                                </div>
-                                                <div class="product-name">
-                                                    <p> Prooduct 1</p>
-                                                </div>
-                                                <hr>
-                                                <div class="price">
-                                                    <p> 33$</p>
-                                                </div>
-                                                <button class="btn btn-primary add-cart" data-price="33" data-name="1">Ajouter au panier</button>
-                                            </div>
-                                        </div>
-                                </div>
+                            <div class="carousel-item <?= $index === 0 ? 'active' : ''; ?>">
 
-                                <!-- Produit 2 -->
-                                <div class="col-lg-3 col-md-6">
-                                    <div class="card">
-                                            <img src="imgs/logo.png" alt="" >
-                                            
-                                            <div class="card-body">
-                                                <div class="rating">
-                                                    <span class="material-symbols-outlined">star</span>
-                                                    <span class="material-symbols-outlined">star</span>
-                                                    <span class="material-symbols-outlined">star</span>
-                                                    <span class="material-symbols-outlined">star</span>
-                                                    <span class="material-symbols-outlined">star_half</span>
-                                                    <span>(4.5)</span>
-                                                </div>
-                                                <div class="product-name">
-                                                    <p> Prooduct 2</p>
-                                                </div>
-                                                <hr>
-                                                <div class="price">
-                                                    <p> 33$</p>
-                                                </div>
-                                                <button class="btn btn-primary add-cart" data-price="33" data-name="2">Ajouter au panier</button>
-                                            </div>
-                                        </div>
-                                </div>
+                                <div class="row g-4 py-5">
 
-                                <!-- Produit 3 -->
-                                <div class="col-lg-3 col-md-6">
-                                    <div class="card">
-                                            <img src="imgs/logo.png" alt="">
-                                            
-                                            <div class="card-body">
-                                                <div class="rating">
-                                                    <span class="material-symbols-outlined">star</span>
-                                                    <span class="material-symbols-outlined">star</span>
-                                                    <span class="material-symbols-outlined">star</span>
-                                                    <span class="material-symbols-outlined">star</span>
-                                                    <span class="material-symbols-outlined">star_half</span>
-                                                    <span>(4.5)</span>
-                                                </div>
-                                                <div class="product-name">
-                                                    <p> Prooduct 3</p>
-                                                </div><hr>
-                                                <div class="price">
-                                                    <p> 88$</p>
-                                                </div>
-                                                <button class="btn btn-primary add-cart" data-price="88" data-name="3">Ajouter au panier</button>
-                                            </div>
-                                        </div>
-                                </div>
+                                    <?php foreach ($group as $product): ?>
 
-                                <!-- Produit 4 -->
-                                <div class="col-lg-3 col-md-6">
-                                    <div class="card">
-                                            <img src="imgs/logo.png" alt="">
-                                            
-                                            <div class="card-body">
-                                                <div class="rating">
-                                                    <span class="material-symbols-outlined">star</span>
-                                                    <span class="material-symbols-outlined">star</span>
-                                                    <span class="material-symbols-outlined">star</span>
-                                                    <span class="material-symbols-outlined">star</span>
-                                                    <span class="material-symbols-outlined">star_half</span>
-                                                    <span>(4.5)</span>
-                                                </div>
-                                                <div class="product-name">
-                                                    <p> Prooduct 4</p>
-                                                </div><hr>
-                                                <div class="price">
-                                                    <p> 34$</p>
-                                                </div>
-                                                <button class="btn btn-primary add-cart" data-price="34" data-name="4">Ajouter au panier</button>
-                                            </div>
-                                        </div>
-                                </div>
+                                        <div class="col-lg-3 col-md-6">
 
-                                <!-- Produit 5 -->
-                                <div class="col-lg-3 col-md-6">
-                                    <div class="card">
-                                            <img src="imgs/logo.png" alt="">
-                                            
-                                            <div class="card-body">
-                                                <div class="rating">
-                                                    <span class="material-symbols-outlined">star</span>
-                                                    <span class="material-symbols-outlined">star</span>
-                                                    <span class="material-symbols-outlined">star</span>
-                                                    <span class="material-symbols-outlined">star</span>
-                                                    <span class="material-symbols-outlined">star_half</span>
-                                                    <span>(4.5)</span>
-                                                </div>
-                                                <div class="product-name">
-                                                    <p> Prooduct 5</p>
-                                                </div><hr>
-                                                <div class="price">
-                                                    <p> 79$</p>
-                                                </div>
-                                                <button class="btn btn-primary add-cart" data-price="79" data-name="5">Ajouter au panier</button>
-                                            </div>
-                                        </div>
-                                </div>
+                                            <div class="card">
 
-                                <!-- Produit 6 -->
-                                <div class="col-lg-3 col-md-6">
-                                    <div class="card">
-                                            <img src="imgs/logo.png" alt="">
-                                            
-                                            <div class="card-body">
-                                                <div class="rating">
-                                                    <span class="material-symbols-outlined">star</span>
-                                                    <span class="material-symbols-outlined">star</span>
-                                                    <span class="material-symbols-outlined">star</span>
-                                                    <span class="material-symbols-outlined">star</span>
-                                                    <span class="material-symbols-outlined">star_half</span>
-                                                    <span>(4.5)</span>
-                                                </div>
-                                                <div class="product-name">
-                                                    <p> Prooduct 6</p>
-                                                </div><hr>
-                                                <div class="price">
-                                                    <p> 120$</p>
-                                                </div>
-                                                <button class="btn btn-primary add-cart" data-price="120" data-name="6">Ajouter au panier</button>
-                                            </div>
-                                        </div>
-                                </div>
+                                                <img src="admin/public/uploads/products/<?= htmlspecialchars($product['image']); ?>" alt="<?= htmlspecialchars($product['nom']); ?>">
 
-                                <!-- Produit 7 -->
-                                <div class="col-lg-3 col-md-6">
-                                    <div class="card">
-                                            <img src="imgs/logo.png" alt="">
-                                            
-                                            <div class="card-body">
-                                                <div class="rating">
-                                                    <span class="material-symbols-outlined">star</span>
-                                                    <span class="material-symbols-outlined">star</span>
-                                                    <span class="material-symbols-outlined">star</span>
-                                                    <span class="material-symbols-outlined">star</span>
-                                                    <span class="material-symbols-outlined">star_half</span>
-                                                    <span>(4.5)</span>
-                                                </div>
-                                                <div class="product-name">
-                                                    <p> Prooduct 7</p>
-                                                </div><hr>
-                                                <div class="price">
-                                                    <p> 55$</p>
-                                                </div>
-                                                <button class="btn btn-primary add-cart" data-price="55" data-name="7">Ajouter au panier</button>
-                                            </div>
-                                        </div>
-                                </div>
+                                                <div class="card-body">
 
-                                <!-- Produit 8 -->
-                                <div class="col-lg-3 col-md-6">
-                                    <div class="card">
-                                            <img src="imgs/logo.png" alt="">
-                                            <div class="card-body">
-                                                <div class="rating">
-                                                    <span class="material-symbols-outlined">star</span>
-                                                    <span class="material-symbols-outlined">star</span>
-                                                    <span class="material-symbols-outlined">star</span>
-                                                    <span class="material-symbols-outlined">star</span>
-                                                    <span class="material-symbols-outlined">star_half</span>
-                                                    <span>(4.5)</span>
+                                                    <div class="rating">
+                                                        <span class="material-symbols-outlined">star</span>
+                                                        <span class="material-symbols-outlined">star</span>
+                                                        <span class="material-symbols-outlined">star</span>
+                                                        <span class="material-symbols-outlined">star</span>
+                                                        <span class="material-symbols-outlined">star_half</span>
+                                                        <span>(4.5)</span>
+                                                    </div>
+
+                                                    <div class="product-name">
+                                                        <p><?= htmlspecialchars($product['nom']); ?></p>
+                                                    </div>
+
+                                                    <hr>
+
+                                                    <div class="price">
+                                                        <p><?= number_format($product['prix'],2); ?> DH</p>
+                                                    </div>
+
+                                                    <button
+                                                        class="btn btn-primary add-cart"
+                                                        data-price="<?= $product['prix']; ?>"
+                                                        data-name="<?= htmlspecialchars($product['nom']); ?>">
+
+                                                        Ajouter au panier
+
+                                                    </button>
+
                                                 </div>
-                                                <div class="product-name">
-                                                    <p> Prooduct 8</p>
-                                                </div><hr>
-                                                <div class="price">
-                                                    <p> 89$</p>
-                                                </div>
-                                                <button class="btn btn-primary add-cart" data-price="89" data-name="8">Ajouter au panier</button>
+
                                             </div>
+
                                         </div>
+
+                                    <?php endforeach; ?>
+
                                 </div>
 
                             </div>
-                        </div>
 
-                        <!-- Slide 2 -->
-                        <div class="carousel-item">
-                            <div class="row g-4 py-5">
-
-                                <!-- Produit 9 -->
-                                <div class="col-lg-3 col-md-6">
-                                    <div class="card">
-                                            <img src="imgs/logo.png" alt="">
-                                            
-                                            <div class="card-body">
-                                                <div class="rating">
-                                                    <span class="material-symbols-outlined">star</span>
-                                                    <span class="material-symbols-outlined">star</span>
-                                                    <span class="material-symbols-outlined">star</span>
-                                                    <span class="material-symbols-outlined">star</span>
-                                                    <span class="material-symbols-outlined">star_half</span>
-                                                    <span>(4.5)</span>
-                                                </div>
-                                                <div class="product-name">
-                                                    <p> Prooduct 9</p>
-                                                </div><hr>
-                                                <div class="price">
-                                                    <p> 00$</p>
-                                                </div>
-                                                <button class="btn btn-primary add-cart" data-price="00" data-name="9">Ajouter au panier</button>
-                                            </div>
-                                        </div>
-                                </div>
-
-                                <!-- Produit 10 -->
-                                <div class="col-lg-3 col-md-6">
-                                    <div class="card">
-                                            <img src="imgs/logo.png" alt="">
-                                            
-                                            <div class="card-body">
-                                                <div class="rating">
-                                                    <span class="material-symbols-outlined">star</span>
-                                                    <span class="material-symbols-outlined">star</span>
-                                                    <span class="material-symbols-outlined">star</span>
-                                                    <span class="material-symbols-outlined">star</span>
-                                                    <span class="material-symbols-outlined">star_half</span>
-                                                    <span>(4.5)</span>
-                                                </div>
-                                                <div class="product-name">
-                                                    <p> Prooduct 10</p>
-                                                </div><hr>
-                                                <div class="price">
-                                                    <p> 00$</p>
-                                                </div>
-                                                <button class="btn btn-primary add-cart" data-price="00" data-name="10">Ajouter au panier</button>
-                                            </div>
-                                        </div>
-                                </div>
-
-                                <!-- etc... -->
-
-                            </div>
-                        </div>
+                        <?php endforeach; ?>
 
                     </div>
 
@@ -525,20 +330,19 @@ document.addEventListener("DOMContentLoaded", function () {
         <div class="offcanvas-body">
             <div id="cart-items"></div>
 
-            <hr>
+                <hr>
 
-            <h5>
-                Total :
-                <span id="cart-total">0 DH</span>
-            </h5>
+                <h5>
+                    Total :
+                    <span id="cart-total">0 DH</span>
+                </h5>
 
-            <button class="btn btn-primary w-100 mt-3 " onclick="window.location.href='./paiement-online/paiement.html'">
-                Commander
-            </button>
+                <button class="btn btn-primary w-100 mt-3 " onclick="window.location.href='./paiement-online/paiement.html'">
+                    Commander
+                </button>
+            </div>
 
         </div>
-
-    </div>
 
     </section>
 
@@ -553,79 +357,34 @@ document.addEventListener("DOMContentLoaded", function () {
             </div>
             <div class="container">
                 <div class="row">
-                    <div class="col-md-12">
-                        <div class="section-h">
-                            <p></p>
+
+                    <?php foreach ($services as $service): ?>
+
+                        <div class="col-md-4">
+
+                            <div class="single-service">
+
+                                <div class="service-bg"
+                                    style="background-image: url('admin/public/uploads/services/<?= htmlspecialchars($service['image']); ?>');">
+
+                                    <h2><?= htmlspecialchars($service['nom']); ?></h2>
+
+                                </div>
+
+                                <div class="service-text">
+
+                                    <p>
+                                        <?= htmlspecialchars($service['description']); ?>
+                                    </p>
+
+                                </div>
+
+                            </div>
+
                         </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-4">
-                        <div class="single-service">
-                            <div class="service-bg service-bg-1">
-                                <h2>Service 1</h2>
-                            </div>
-                            <div class="service-text">
-                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat voluptate iusto maxime libero tempore, animi optio minima, molestias beatae harum quisquam dicta, distinctio incidunt expedita.</p>
-                                
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="single-service">
-                            <div class="service-bg service-bg-2">
-                                <h2>Service 2</h2>
-                            </div>
-                            <div class="service-text">
-                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat voluptate iusto maxime libero tempore, animi optio minima, molestias beatae harum quisquam dicta, distinctio incidunt expedita.</p>
-                                
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="single-service">
-                            <div class="service-bg service-bg-3">
-                                <h2>Service 3</h2>
-                            </div>
-                            <div class="service-text">
-                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat voluptate iusto maxime libero tempore, animi optio minima, molestias beatae harum quisquam dicta, distinctio incidunt expedita.</p>
-                                
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="single-service">
-                            <div class="service-bg service-bg-1">
-                                <h2>Service 4</h2>
-                            </div>
-                            <div class="service-text">
-                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat voluptate iusto maxime libero tempore, animi optio minima, molestias beatae harum quisquam dicta, distinctio incidunt expedita.</p>
-                                
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="single-service">
-                            <div class="service-bg service-bg-1">
-                                <h2>Service 5</h2>
-                            </div>
-                            <div class="service-text">
-                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat voluptate iusto maxime libero tempore, animi optio minima, molestias beatae harum quisquam dicta, distinctio incidunt expedita.</p>
-                                
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="single-service">
-                            <div class="service-bg service-bg-1">
-                                <h2>Service 6</h2>
-                            </div>
-                            <div class="service-text">
-                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat voluptate iusto maxime libero tempore, animi optio minima, molestias beatae harum quisquam dicta, distinctio incidunt expedita.</p>
-                                
-                            </div>
-                        </div>
-                    </div>
+
+                    <?php endforeach; ?>
+
                 </div>
             </div>
       </section>
