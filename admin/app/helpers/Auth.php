@@ -7,8 +7,8 @@ class Auth
      */
     public static function check(): void
     {
-        if (!Session::has('admin')) {
-            header('Location: index.php');
+        if (!Session::has('admin_id')) {
+            header('Location: index.php?url=login');
             exit;
         }
     }
